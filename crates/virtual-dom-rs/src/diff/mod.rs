@@ -156,6 +156,7 @@ mod diff_test_case;
 #[cfg(test)]
 use self::diff_test_case::*;
 
+#[cfg(feature = "nightly")]
 #[cfg(test)]
 mod tests {
     use super::*;

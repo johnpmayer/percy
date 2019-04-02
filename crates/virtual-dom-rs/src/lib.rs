@@ -5,7 +5,7 @@
 //! to an `HtmlElement`, and on the server we render to a `String`.
 
 #![deny(missing_docs)]
-#![feature(proc_macro_hygiene)]
+#![cfg_attr(feature = "nightly", feature(proc_macro_hygiene))]
 
 extern crate wasm_bindgen;
 
@@ -29,6 +29,7 @@ pub use crate::patch::*;
 mod view;
 pub use crate::view::*;
 
+#[cfg(feature = "nightly")]
 pub use html_macro::html;
 
 mod dom_updater;
@@ -40,6 +41,7 @@ pub mod prelude {
     pub use crate::dom_updater::DomUpdater;
     pub use crate::view::View;
     pub use crate::VirtualNode;
+    #[cfg(feature = "nightly")]
     pub use html_macro::html;
     pub use std::vec::IntoIter;
     pub use virtual_node::IterableNodes;
